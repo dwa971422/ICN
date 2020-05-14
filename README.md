@@ -8,7 +8,7 @@
 接著是程式碼的執行範例
 
 	./printRoutingTable //執行 printRoutingTable 程式
-	lf test.txt
+	lf test.txt	//依序輸入相關指令與參數
 	rm r2
 	rm r4
 	of //程式執行完畢，在程式碼目錄下產生檔名為 test_out2.txt 的輸出檔
