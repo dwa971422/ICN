@@ -14,3 +14,13 @@
 3.   程式執行完畢
 
 ## 執行細節  
+首先解釋演算法執行過程中使用到的 function  
+  
+1. **void** releaseAllocatedResource(**int**** adjacencyMatrix, **int** routerNumber)  
+		這個函數用來釋放因儲存 graph 所使用、動態配置的記憶體空間
+  
+2. **int** minimalDistance(**int*** distFromSource, **bool*** shortestPathSet, **int** remainingRouterCnt)  
+		這個函數會回傳 shortestPathSet 中所有尚未被檢查過的 node 中		擁有最小 distance 的 node index
+  
+3. **void** printNextRouter(**int*** parentOfRouter, **int** destination, **int** removeRouterOrNot, **int*** remainingRouterIndex, **FILE*** outputFile)
+		
