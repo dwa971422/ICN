@@ -28,6 +28,20 @@
 
 3. **void** printNextRouter(**int*** parentOfRouter, **int** destination, **int** removeRouterOrNot, **int*** remainingRouterIndex, **FILE*** outputFile)
 
-		這個函數用來尋找從 destination 出發到目的地的最短路徑中第一個走到的 router index，並將結果列印至 outputFile
+		這個函數用來尋找從 source 出發走到 destination 的最短路徑中第一個經過的 router index，並將結果列印至 outputFile
 
 4. **void** printRoutingTable(**int*** distFromSource, **int*** parentOfRouter, **int** originRouterCnt, **int** remainingRouterCnt, **int** sourceRouter, **int** removeRouterOrNot, **int*** remainingRouterIndex, **FILE*** outputFile)
+
+		這個函數用來將依照各個使用者指令處理後得到的最終 graph 的 routing table 列印至 outputFile，過程中會呼叫 printNextRouter 函數找到最短路徑中第一個經過的 routerIndex
+
+5. **void** DijkstraAlgorithm(**int**** adjacencyMatrix, **int** originRouterCnt, **int** remainingRouterCnt, **int** sourceRouter, **int** removeRouterOrNot, **int*** remainingRouterIndex, **FILE*** outputFile)
+
+		這個函數使用 Dijkstra's Algorithm 尋找 sourceRouter 到所有其他 router 的最短路徑並呼叫 printRoutingTable 函數將結果列印至 outputFile
+
+6. **void** removeCertainRouter(**int**** adjacencyMatrix, **int** routerNumber, **int** removedRouterIndex)
+
+		這個函數用來將使用者欲移除的 router 從 graph 中移除
+
+7. **int**** NewMatrixAndRemainingRouter(**int**** adjacencyMatrix, **int** routerNumber, **int*** remainingRouterCnt, **int**** remainingRouterIndex)
+
+		因為使用者移除了某個 router 後整個 graph 的性質就完全不同了，因此這個函數用來讀取舊有的、已經有部分 router 被移除的 graph 資訊並製作一個 newGraph 後回傳
